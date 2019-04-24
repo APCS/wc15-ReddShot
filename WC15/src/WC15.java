@@ -30,8 +30,13 @@ public class WC15
    */
   public static String centralThree(String letters)
   {
+    int start = letters.length() / 2 - 1;
+    int end = letters.length() / 2 + 2;
+    String middleWord = letters.substring(start, end);
+    
+    
     //TODO: Finish
-    return "no";
+    return middleWord;
   }
 
   /**
@@ -50,9 +55,25 @@ public class WC15
    * @return
    */
   public static String chopFront(String str)
-  {
+  { 
+    String newWord = "";
+    for(int i = 0; i < str.length(); i++)
+    {
+      if(i >= 2)
+      {
+        newWord += str.substring(i , i + 1);
+      }
+      else if(str.substring(i, i + 1).compareTo("a") == 0 && i == 0)
+      {
+        newWord += str.substring(i , i + 1);
+      }
+      else if(str.substring(i, i + 1).compareTo("b") == 0 && i == 1)
+      {
+        newWord += str.substring(i , i + 1);
+      }
+    }
     //TODO: Finish
-    return "no";
+    return newWord;
   }
 
   /**
@@ -72,8 +93,21 @@ public class WC15
    */
   public static String hateX(String str)
   {
+    String newWord = "";
+    
+    for(int i = 0; i < str.length();i++)
+    {
+      if(str.substring(i, i + 1).compareTo("x") != 0 && i < 2)
+      {
+        newWord += str.substring(i, i + 1);
+      }
+      else if(i >= 2)
+      {
+        newWord += str.substring(i, i + 1);
+      }
+    }
     //TODO: Finish
-    return "no";
+    return newWord;
   }
 
   /**
@@ -88,6 +122,9 @@ public class WC15
    */
   public static void swapRows(int[][] mat, int rowAIndex, int rowBIndex)
   {
+    int[] swappedRows = mat[rowAIndex];
+    mat[rowAIndex] = mat[rowBIndex];
+    mat[rowBIndex] = swappedRows;
     //TODO: Finish
   }
 
@@ -103,6 +140,7 @@ public class WC15
    */
   public static void swapColumns(int[][] mat, int colAIndex, int colBIndex)
   {
+    
     //TODO: Finish
   }
 
