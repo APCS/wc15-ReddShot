@@ -140,7 +140,20 @@ public class WC15
    */
   public static void swapColumns(int[][] mat, int colAIndex, int colBIndex)
   {
+    int[] temporary = new int[mat[0].length];
     
+    for(int i = 0; i < mat.length;i++)
+    {
+      temporary[i] = mat[i][colAIndex];
+    }
+    for(int i = 0; i < mat.length;i++)
+    {
+      mat[i][colAIndex] = mat[i][colBIndex];
+    }
+    for(int i = 0; i < mat.length;i++)
+    {
+      mat[i][colBIndex] = temporary[i];
+    }
     //TODO: Finish
   }
 
