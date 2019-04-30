@@ -174,7 +174,22 @@ public class WC15
   public static String[][] fill2DWithLetters(String str, int rows, int cols)
   {
     //TODO: Finish
-    return new String[][] {{"42"}};
+    String [][] wordString = new String [rows][cols];
+    
+    int sub = 0;
+    for(int i = 0;i < wordString.length;i++)
+    {
+      for(int c = 0; i < wordString[0].length;c++)
+      {
+        if(i == str.length())
+        {
+          break;
+        }
+        wordString[i][c] = str.substring(sub, sub + 1);
+        i++;
+      }
+    }
+    return wordString;
   }
 
   /**
