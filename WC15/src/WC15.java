@@ -33,9 +33,8 @@ public class WC15
     int start = letters.length() / 2 - 1;
     int end = letters.length() / 2 + 2;
     String middleWord = letters.substring(start, end);
-    
-    
-    //TODO: Finish
+
+    // TODO: Finish
     return middleWord;
   }
 
@@ -55,24 +54,24 @@ public class WC15
    * @return
    */
   public static String chopFront(String str)
-  { 
+  {
     String newWord = "";
-    for(int i = 0; i < str.length(); i++)
+    for (int i = 0; i < str.length(); i++)
     {
-      if(i >= 2)
+      if (i >= 2)
       {
-        newWord += str.substring(i , i + 1);
+        newWord += str.substring(i, i + 1);
       }
-      else if(str.substring(i, i + 1).compareTo("a") == 0 && i == 0)
+      else if (str.substring(i, i + 1).compareTo("a") == 0 && i == 0)
       {
-        newWord += str.substring(i , i + 1);
+        newWord += str.substring(i, i + 1);
       }
-      else if(str.substring(i, i + 1).compareTo("b") == 0 && i == 1)
+      else if (str.substring(i, i + 1).compareTo("b") == 0 && i == 1)
       {
-        newWord += str.substring(i , i + 1);
+        newWord += str.substring(i, i + 1);
       }
     }
-    //TODO: Finish
+    // TODO: Finish
     return newWord;
   }
 
@@ -94,19 +93,19 @@ public class WC15
   public static String hateX(String str)
   {
     String newWord = "";
-    
-    for(int i = 0; i < str.length();i++)
+
+    for (int i = 0; i < str.length(); i++)
     {
-      if(str.substring(i, i + 1).compareTo("x") != 0 && i < 2)
+      if (str.substring(i, i + 1).compareTo("x") != 0 && i < 2)
       {
         newWord += str.substring(i, i + 1);
       }
-      else if(i >= 2)
+      else if (i >= 2)
       {
         newWord += str.substring(i, i + 1);
       }
     }
-    //TODO: Finish
+    // TODO: Finish
     return newWord;
   }
 
@@ -125,7 +124,7 @@ public class WC15
     int[] swappedRows = mat[rowAIndex];
     mat[rowAIndex] = mat[rowBIndex];
     mat[rowBIndex] = swappedRows;
-    //TODO: Finish
+    // TODO: Finish
   }
 
   /**
@@ -141,20 +140,20 @@ public class WC15
   public static void swapColumns(int[][] mat, int colAIndex, int colBIndex)
   {
     int[] temporary = new int[mat[0].length];
-    
-    for(int i = 0; i < mat.length;i++)
+
+    for (int i = 0; i < mat.length; i++)
     {
       temporary[i] = mat[i][colAIndex];
     }
-    for(int i = 0; i < mat.length;i++)
+    for (int i = 0; i < mat.length; i++)
     {
       mat[i][colAIndex] = mat[i][colBIndex];
     }
-    for(int i = 0; i < mat.length;i++)
+    for (int i = 0; i < mat.length; i++)
     {
       mat[i][colBIndex] = temporary[i];
     }
-    //TODO: Finish
+    // TODO: Finish
   }
 
   /**
@@ -173,21 +172,25 @@ public class WC15
    */
   public static String[][] fill2DWithLetters(String str, int rows, int cols)
   {
-    //TODO: Finish
-    String [][] wordString = new String [rows][cols];
-    
-    int sub = 0;
-    for(int i = 0;i < wordString.length;i++)
+    // TODO: Finish
+    String[][] wordString = new String[rows][cols];
+    int wordCounter = 0;
+
+    for (int r = 0; r < wordString.length; r++)
     {
-      for(int c = 0; i < wordString[0].length;c++)
+      for (int c = 0; c < wordString[0].length; c++)
       {
-        if(i == str.length())
+        if (wordCounter >= str.length())
         {
           break;
         }
-        wordString[i][c] = str.substring(sub, sub + 1);
-        i++;
+        else
+        {
+          wordString[r][c] = str.substring(wordCounter, wordCounter + 1);
+          wordCounter++;
+        }
       }
+
     }
     return wordString;
   }
@@ -221,8 +224,35 @@ public class WC15
    */
   public static int[][] fillDownAndUp(int[] vals, int rows, int cols)
   {
-    //TODO: Finish
-    return new int[][] {{42}};
+    int[][] newArray = new int[rows][cols];
+    int valCounter = 0;
+    int repetitionCounter = 0;
+
+    for (int c = 0; c < cols; c++)
+    {
+      if (repetitionCounter == 0)
+      {
+        for (int r = 0; r < rows; r++)
+        {
+          newArray[r][c] = vals[valCounter];
+          valCounter++;
+          repetitionCounter++;
+        }
+      }
+      else if(repetitionCounter == rows)
+      {
+        for(int r = rows - 1; r >= 0; r--)
+        {
+          newArray[r][c] = vals[valCounter];
+          valCounter++;
+          repetitionCounter--;
+          
+        }
+      }
+
+    }
+    // TODO: Finish
+    return newArray;
   }
 
   /**
@@ -255,10 +285,39 @@ public class WC15
    * @return a smaller array containing the specified elements
    */
   public static int[][] crop2D(int[][] mat, int startRow, int startCol,
-      int endRow, int endCol)
+    int endRow, int endCol)
   {
-    //TODO: Finish
-    return new int[][] {{42}};
+    int rowDeclaration = 0;
+    int colDeclaration = 0;
+    int rows = 0;
+    int cols = 0;
+    
+    for(int r = startRow; r < endRow;r++)
+    {
+      rowDeclaration++;
+    }
+    for(int c = startCol; c < endCol;c++)
+    {
+      colDeclaration++;
+    }
+    int[][] newArray = new int[rowDeclaration + 1][colDeclaration + 1];
+    
+    
+    for(int r = startRow; r < endRow + 1;r++)
+    {
+      cols = 0;
+      for(int c = startCol ; c < endCol + 1;c++)
+      {
+        newArray[rows][cols] = mat[r][c];
+        cols++;
+      }
+      rows++;
+    }
+    
+    
+    
+    return newArray;
+    
   }
 
 }
