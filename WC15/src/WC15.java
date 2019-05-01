@@ -184,11 +184,8 @@ public class WC15
         {
           break;
         }
-        else
-        {
-          wordString[r][c] = str.substring(wordCounter, wordCounter + 1);
-          wordCounter++;
-        }
+        wordString[r][c] = str.substring(wordCounter, wordCounter + 1);
+        wordCounter++;
       }
 
     }
