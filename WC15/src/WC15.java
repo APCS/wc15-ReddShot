@@ -239,14 +239,14 @@ public class WC15
           repetitionCounter++;
         }
       }
-      else if(repetitionCounter == rows)
+      else if (repetitionCounter == rows)
       {
-        for(int r = rows - 1; r >= 0; r--)
+        for (int r = rows - 1; r >= 0; r--)
         {
           newArray[r][c] = vals[valCounter];
           valCounter++;
           repetitionCounter--;
-          
+
         }
       }
 
@@ -291,33 +291,30 @@ public class WC15
     int colDeclaration = 0;
     int rows = 0;
     int cols = 0;
-    
-    for(int r = startRow; r < endRow;r++)
+
+    for (int r = startRow; r < endRow; r++)
     {
       rowDeclaration++;
     }
-    for(int c = startCol; c < endCol;c++)
+    for (int c = startCol; c < endCol; c++)
     {
       colDeclaration++;
     }
     int[][] newArray = new int[rowDeclaration + 1][colDeclaration + 1];
-    
-    
-    for(int r = startRow; r < endRow + 1;r++)
+
+    for (int r = startRow; r < endRow + 1; r++)
     {
       cols = 0;
-      for(int c = startCol ; c < endCol + 1;c++)
+      for (int c = startCol; c < endCol + 1; c++)
       {
         newArray[rows][cols] = mat[r][c];
         cols++;
       }
       rows++;
     }
-    
-    
-    
+
     return newArray;
-    
+
   }
 
 }
