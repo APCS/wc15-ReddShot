@@ -285,7 +285,7 @@ public class WC15
    * @return a smaller array containing the specified elements
    */
   public static int[][] crop2D(int[][] mat, int startRow, int startCol,
-    int endRow, int endCol)
+      int endRow, int endCol)
   {
     int rowDeclaration = 0;
     int colDeclaration = 0;
